@@ -26,7 +26,7 @@ export default function RootLayout({
             {children}
           </main>
           
-          {/* Bland Web Widget - Replace YOUR_WIDGET_ID with your actual widget ID */}
+          {/* Bland Web Widget */}
           <Script
             id="bland-widget"
             strategy="afterInteractive"
@@ -37,18 +37,19 @@ export default function RootLayout({
                   var s=l.createElement('script');
                   s.async=true;
                   s.src=a;
+                  s.onload = function() {
+                    // Initialize AFTER the script loads
+                    Bland('init', {
+                      widgetId: '42ee0bcc-4714-48fa-a203-7d297d3715c4',
+                      request_data: {
+                        userType: 'prospect',
+                        product: 'GBL',
+                        page: window.location.pathname
+                      }
+                    });
+                  };
                   l.head.appendChild(s);
                 })(window,document,'https://us.api.bland.ai/widget/loader.js');
-                
-                // Initialize the widget with your configuration
-                Bland('init', {
-                  widgetId: '42ee0bcc-4714-48fa-a203-7d297d3715c4',
-                  request_data: {
-                    userType: 'prospect',
-                    product: 'GBL',
-                    page: window.location.pathname
-                  }
-                });
               `
             }}
           />
