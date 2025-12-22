@@ -42,7 +42,7 @@ export default function RootLayout({
                 
                 // Initialize the widget with your configuration
                 Bland('init', {
-                  widgetId: 'YOUR_WIDGET_ID', // Replace with actual widget ID
+                  widgetId: '42ee0bcc-4714-48fa-a203-7d297d3715c4',
                   request_data: {
                     userType: 'prospect',
                     product: 'GBL',
