@@ -26,32 +26,27 @@ export default function RootLayout({
             {children}
           </main>
           
-          {/* Bland Web Widget */}
+          {/* Bland Web Widget - CORRECTED */}
           <Script
-            id="bland-widget"
-            strategy="afterInteractive"
+            id="bland-settings"
+            strategy="beforeInteractive"
             dangerouslySetInnerHTML={{
               __html: `
-                (function(b,l,a,n,d){
-                  b.Bland=function(){(b.Bland.q=b.Bland.q||[]).push(arguments)};
-                  var s=l.createElement('script');
-                  s.async=true;
-                  s.src=a;
-                  s.onload = function() {
-                    // Initialize AFTER the script loads
-                    Bland('init', {
-                      widgetId: '42ee0bcc-4714-48fa-a203-7d297d3715c4',
-                      request_data: {
-                        userType: 'prospect',
-                        product: 'GBL',
-                        page: window.location.pathname
-                      }
-                    });
-                  };
-                  l.head.appendChild(s);
-                })(window,document,'https://us.api.bland.ai/widget/loader.js');
+                window.blandSettings = {
+                  widget_id: "42ee0bcc-4714-48fa-a203-7d297d3715c4",
+                  request_data: {
+                    userType: "prospect",
+                    product: "GBL",
+                    page: window.location.pathname
+                  }
+                };
               `
             }}
+          />
+          <Script
+            src="https://widget.bland.ai/loader.js"
+            strategy="afterInteractive"
+            defer
           />
 
           {/* Footer */}
