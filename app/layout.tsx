@@ -33,7 +33,7 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{
               __html: `
                 window.blandSettings = {
-                  widget_id: "42ee0bcc-4714-48fa-a203-7d297d3715c4",
+                  widget_id: "d95464c-7f3e-41a0-bd36-0d6c16e64882",
                   request_data: {
                     userType: "prospect",
                     product: "GBL",
